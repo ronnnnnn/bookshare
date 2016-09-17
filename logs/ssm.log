@@ -1,0 +1,75 @@
+[INFO] [2016-09-17 19:48:30][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+  [INFO] [2016-09-17 19:48:30][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Sat Sep 17 19:48:30 CST 2016]; root of context hierarchy
+  [INFO] [2016-09-17 19:48:30][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2016-09-17 19:48:30][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2016-09-17 19:48:31][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 1271 ms
+  [INFO] [2016-09-17 19:48:31][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+  [INFO] [2016-09-17 19:48:31][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Sat Sep 17 19:48:31 CST 2016]; parent: Root WebApplicationContext
+  [INFO] [2016-09-17 19:48:31][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/test],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.ron.controller.MTestController.toTest(org.springframework.ui.Model)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/getParentCatJson],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminCategoryController.getParentCatJson(javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/getSubCatJson],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminCategoryController.getSubCatJson(java.lang.Integer,javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/toHomePage],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.ron.controller.HomeController.toHomePage(org.springframework.ui.Model)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/toHomePage/getBook],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.HomeController.getBook(int,int,javax.servlet.http.HttpServletResponse,org.springframework.ui.Model)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/toHomePage/getBookPage],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.HomeController.getBookPage(javax.servlet.http.HttpServletResponse,int)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/getProduct],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminHomeController.getProduct()
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/toAdminHome],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.ron.controller.AdminHomeController.toAdminHome()
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/getTreeList],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminHomeController.getTreeList(javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/bookDetailEdit],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminBookDetailController.bookDetailEdit(com.ron.domain.BookWithBLOBsModel,javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/getBookDetail],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminBookDetailController.getBookDetail(int,javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/getOtherBook],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminBookManageController.getOtherBook(int,com.ron.model.PageModel,javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/getAllBook],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminBookManageController.getAllBook(com.ron.model.PageModel,javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/addBook],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminBookManageController.addBook(com.ron.domain.product,javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/removeBook],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminBookManageController.removeBook(java.lang.String,javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/proRemove],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminProductManageController.proRemove(java.lang.String,javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/proEdit],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminProductManageController.proEdit(com.ron.domain.product,javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/getProductByCatId],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminProductManageController.getProductByCatId(int,com.ron.model.PageModel,javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/proAdd],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminProductManageController.proAdd(java.lang.String,java.lang.Integer,javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/proOnSale],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminProductManageController.proOnSale(java.lang.String,javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/proOutSale],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminProductManageController.proOutSale(java.lang.String,javax.servlet.http.HttpServletResponse)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/importImage],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.ron.controller.AdminImageController.importImage(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest)
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/productImages/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/jslib/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/ueditor/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#5'
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/bootstrap-3.3.5-dist/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#6'
+  [INFO] [2016-09-17 19:48:32][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 1206 ms
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]1
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]2
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]11
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]12
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]13
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]14
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]15
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]16
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]17
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]18
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]19
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]20
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]23
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]34
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]35
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]38
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]39
+  [INFO] [2016-09-17 19:49:14][com.ron.service.impl.BookListServiceImpl]41
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]1
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]2
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]11
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]12
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]13
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]14
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]15
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]16
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]17
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]18
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]19
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]20
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]23
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]34
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]35
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]38
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]39
+  [INFO] [2016-09-17 19:49:17][com.ron.service.impl.BookListServiceImpl]41
+  

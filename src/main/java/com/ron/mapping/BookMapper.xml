@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ron.mapper.BookMapper" >
+  <resultMap id="BaseResultMap" type="com.ron.domain.Book" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="publishing" property="publishing" jdbcType="VARCHAR" />
+    <result column="publish_time" property="publishTime" jdbcType="BIGINT" />
+    <result column="word_number" property="wordNumber" jdbcType="VARCHAR" />
+    <result column="which_edtion" property="whichEdtion" jdbcType="VARCHAR" />
+    <result column="total_page" property="totalPage" jdbcType="VARCHAR" />
+    <result column="print_time" property="printTime" jdbcType="BIGINT" />
+    <result column="print_number" property="printNumber" jdbcType="VARCHAR" />
+    <result column="isbn" property="isbn" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.ron.domain.BookWithBLOBs" extends="BaseResultMap" >
+    <result column="author_summary" property="authorSummary" jdbcType="LONGVARCHAR" />
+    <result column="catalogue" property="catalogue" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, author, publishing, publish_time, word_number, which_edtion, total_page, print_time, 
+    print_number, isbn
+  </sql>
+  <sql id="Blob_Column_List" >
+    author_summary, catalogue
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from d_book
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from d_book
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ron.domain.BookWithBLOBs" >
+    insert into d_book (id, author, publishing, 
+      publish_time, word_number, which_edtion, 
+      total_page, print_time, print_number, 
+      isbn, author_summary, catalogue
+      )
+    values (#{id,jdbcType=INTEGER}, #{author,jdbcType=VARCHAR}, #{publishing,jdbcType=VARCHAR}, 
+      #{publishTime,jdbcType=BIGINT}, #{wordNumber,jdbcType=VARCHAR}, #{whichEdtion,jdbcType=VARCHAR}, 
+      #{totalPage,jdbcType=VARCHAR}, #{printTime,jdbcType=BIGINT}, #{printNumber,jdbcType=VARCHAR}, 
+      #{isbn,jdbcType=VARCHAR}, #{authorSummary,jdbcType=LONGVARCHAR}, #{catalogue,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ron.domain.BookWithBLOBs" >
+    insert into d_book
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="publishing != null" >
+        publishing,
+      </if>
+      <if test="publishTime != null" >
+        publish_time,
+      </if>
+      <if test="wordNumber != null" >
+        word_number,
+      </if>
+      <if test="whichEdtion != null" >
+        which_edtion,
+      </if>
+      <if test="totalPage != null" >
+        total_page,
+      </if>
+      <if test="printTime != null" >
+        print_time,
+      </if>
+      <if test="printNumber != null" >
+        print_number,
+      </if>
+      <if test="isbn != null" >
+        isbn,
+      </if>
+      <if test="authorSummary != null" >
+        author_summary,
+      </if>
+      <if test="catalogue != null" >
+        catalogue,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publishing != null" >
+        #{publishing,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        #{publishTime,jdbcType=BIGINT},
+      </if>
+      <if test="wordNumber != null" >
+        #{wordNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="whichEdtion != null" >
+        #{whichEdtion,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPage != null" >
+        #{totalPage,jdbcType=VARCHAR},
+      </if>
+      <if test="printTime != null" >
+        #{printTime,jdbcType=BIGINT},
+      </if>
+      <if test="printNumber != null" >
+        #{printNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="isbn != null" >
+        #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="authorSummary != null" >
+        #{authorSummary,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="catalogue != null" >
+        #{catalogue,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ron.domain.BookWithBLOBs" >
+    update d_book
+    <set >
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publishing != null" >
+        publishing = #{publishing,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        publish_time = #{publishTime,jdbcType=BIGINT},
+      </if>
+      <if test="wordNumber != null" >
+        word_number = #{wordNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="whichEdtion != null" >
+        which_edtion = #{whichEdtion,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPage != null" >
+        total_page = #{totalPage,jdbcType=VARCHAR},
+      </if>
+      <if test="printTime != null" >
+        print_time = #{printTime,jdbcType=BIGINT},
+      </if>
+      <if test="printNumber != null" >
+        print_number = #{printNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="isbn != null" >
+        isbn = #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="authorSummary != null" >
+        author_summary = #{authorSummary,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="catalogue != null" >
+        catalogue = #{catalogue,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.ron.domain.BookWithBLOBs" >
+    update d_book
+    set author = #{author,jdbcType=VARCHAR},
+      publishing = #{publishing,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=BIGINT},
+      word_number = #{wordNumber,jdbcType=VARCHAR},
+      which_edtion = #{whichEdtion,jdbcType=VARCHAR},
+      total_page = #{totalPage,jdbcType=VARCHAR},
+      print_time = #{printTime,jdbcType=BIGINT},
+      print_number = #{printNumber,jdbcType=VARCHAR},
+      isbn = #{isbn,jdbcType=VARCHAR},
+      author_summary = #{authorSummary,jdbcType=LONGVARCHAR},
+      catalogue = #{catalogue,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ron.domain.Book" >
+    update d_book
+    set author = #{author,jdbcType=VARCHAR},
+      publishing = #{publishing,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=BIGINT},
+      word_number = #{wordNumber,jdbcType=VARCHAR},
+      which_edtion = #{whichEdtion,jdbcType=VARCHAR},
+      total_page = #{totalPage,jdbcType=VARCHAR},
+      print_time = #{printTime,jdbcType=BIGINT},
+      print_number = #{printNumber,jdbcType=VARCHAR},
+      isbn = #{isbn,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
