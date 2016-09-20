@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ron.mapper.SysUserMapper" >
+  <resultMap id="BaseResultMap" type="com.ron.domain.SysUser" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="role_ids" property="roleIds" jdbcType="VARCHAR" />
+    <result column="locked" property="locked" jdbcType="TINYINT" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+    <result column="user_integral" property="userIntegral" jdbcType="INTEGER" />
+    <result column="is_email_verify" property="isEmailVerify" jdbcType="CHAR" />
+    <result column="email_verify_code" property="emailVerifyCode" jdbcType="VARCHAR" />
+    <result column="last_login_ip" property="lastLoginIp" jdbcType="VARCHAR" />
+    <result column="last_login_time" property="lastLoginTime" jdbcType="BIGINT" />
+    <result column="account" property="account" jdbcType="DOUBLE" />
+    <result column="book_ids" property="bookIds" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, username, password, salt, role_ids, locked, email, nickname, user_integral, is_email_verify, 
+    email_verify_code, last_login_ip, last_login_time, account, book_ids
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByUsername" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from sys_user
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insert" parameterType="com.ron.domain.SysUser" >
+    insert into sys_user (id, username, password, 
+      salt, role_ids, locked, 
+      email, nickname, user_integral, 
+      is_email_verify, email_verify_code, last_login_ip, 
+      last_login_time, account, book_ids
+      )
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{salt,jdbcType=VARCHAR}, #{roleIds,jdbcType=VARCHAR}, #{locked,jdbcType=TINYINT}, 
+      #{email,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{userIntegral,jdbcType=INTEGER}, 
+      #{isEmailVerify,jdbcType=CHAR}, #{emailVerifyCode,jdbcType=VARCHAR}, #{lastLoginIp,jdbcType=VARCHAR}, 
+      #{lastLoginTime,jdbcType=BIGINT}, #{account,jdbcType=DOUBLE}, #{bookIds,jdbcType=VARCHAR}
+      )
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.ron.domain.SysUser" >
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="salt != null" >
+        salt,
+      </if>
+      <if test="roleIds != null" >
+        role_ids,
+      </if>
+      <if test="locked != null" >
+        locked,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="nickname != null" >
+        nickname,
+      </if>
+      <if test="userIntegral != null" >
+        user_integral,
+      </if>
+      <if test="isEmailVerify != null" >
+        is_email_verify,
+      </if>
+      <if test="emailVerifyCode != null" >
+        email_verify_code,
+      </if>
+      <if test="lastLoginIp != null" >
+        last_login_ip,
+      </if>
+      <if test="lastLoginTime != null" >
+        last_login_time,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="bookIds != null" >
+        book_ids,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="roleIds != null" >
+        #{roleIds,jdbcType=VARCHAR},
+      </if>
+      <if test="locked != null" >
+        #{locked,jdbcType=TINYINT},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="userIntegral != null" >
+        #{userIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="isEmailVerify != null" >
+        #{isEmailVerify,jdbcType=CHAR},
+      </if>
+      <if test="emailVerifyCode != null" >
+        #{emailVerifyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginIp != null" >
+        #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null" >
+        #{lastLoginTime,jdbcType=BIGINT},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=DOUBLE},
+      </if>
+      <if test="bookIds != null" >
+        #{bookIds,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.ron.domain.SysUser" >
+    update sys_user
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="roleIds != null" >
+        role_ids = #{roleIds,jdbcType=VARCHAR},
+      </if>
+      <if test="locked != null" >
+        locked = #{locked,jdbcType=TINYINT},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="userIntegral != null" >
+        user_integral = #{userIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="isEmailVerify != null" >
+        is_email_verify = #{isEmailVerify,jdbcType=CHAR},
+      </if>
+      <if test="emailVerifyCode != null" >
+        email_verify_code = #{emailVerifyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginIp != null" >
+        last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null" >
+        last_login_time = #{lastLoginTime,jdbcType=BIGINT},
+      </if>
+      <if test="account != null" >
+        account = #{account,jdbcType=DOUBLE},
+      </if>
+      <if test="bookIds != null" >
+        book_ids = #{bookIds,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.ron.domain.SysUser" >
+    update sys_user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      role_ids = #{roleIds,jdbcType=VARCHAR},
+      locked = #{locked,jdbcType=TINYINT},
+      email = #{email,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      user_integral = #{userIntegral,jdbcType=INTEGER},
+      is_email_verify = #{isEmailVerify,jdbcType=CHAR},
+      email_verify_code = #{emailVerifyCode,jdbcType=VARCHAR},
+      last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      last_login_time = #{lastLoginTime,jdbcType=BIGINT},
+      account = #{account,jdbcType=DOUBLE},
+      book_ids = #{bookIds,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+</mapper>

@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -22,9 +23,14 @@
 
 <body class="easyui-layout">
 	<div data-options="region:'north'" style="height: 70px;background-color: #E0ECFF">
-		<div align="left">
+		<div align="left" style="float: left">
 			<h1 style="margin-left: 35px;">后台管理</h1>
 		</div>
+		<div style="float: right">
+			<h4><shiro:principal/></h4>
+			<h4 align="center" style="margin-right: 35px"><a href="${pageContext.request.contextPath}/logout">退出</a></h4>
+		</div>
+
 	</div>
 	<div data-options="region:'south'" style="height: 30px;">
 		<div align="center">
