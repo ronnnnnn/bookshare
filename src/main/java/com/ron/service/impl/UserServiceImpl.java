@@ -60,7 +60,7 @@ public class UserServiceImpl implements Userservice {
     public Set<String> findPermissions(String username) {
         SysUser sysUser = findByUsername(username);
         String[] roleIds = sysUser.getRoleIds().split(",");
-        Long mroleids[] = new Long[]{};
+        Long mroleids[] = new Long[roleIds.length];
         for (int i = 0; i < roleIds.length ; i++) {
             mroleids[i] = Long.parseLong(roleIds[i]);
         }

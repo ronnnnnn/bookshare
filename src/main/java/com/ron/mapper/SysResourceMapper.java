@@ -2,6 +2,8 @@ package com.ron.mapper;
 
 import com.ron.domain.SysResource;
 
+import java.util.List;
+
 public interface SysResourceMapper {
 
     int deleteByPrimaryKey(Long id);
@@ -15,4 +17,6 @@ public interface SysResourceMapper {
     int updateByPrimaryKeySelective(SysResource record);
 
     int updateByPrimaryKey(SysResource record);
+
+    List<SysResource> selectAll();
 }

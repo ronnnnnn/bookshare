@@ -24,6 +24,16 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!--filter>
+        <filter-name>agantLoginFilter</filter-name>
+        <filter-class>com.ron.filter.AgantLoginFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>agantLoginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping-->
+
     <!-- shiro 安全过滤器 -->
     <filter>
         <filter-name>shiroFilter</filter-name>

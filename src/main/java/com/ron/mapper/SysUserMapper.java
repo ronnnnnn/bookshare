@@ -2,6 +2,8 @@ package com.ron.mapper;
 
 import com.ron.domain.SysUser;
 
+import java.util.List;
+
 public interface SysUserMapper {
 
     int deleteByPrimaryKey(Long id);
@@ -17,4 +19,6 @@ public interface SysUserMapper {
     int updateByPrimaryKey(SysUser record);
 
     SysUser selectByUsername(String username);
+
+
 }

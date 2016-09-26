@@ -19,6 +19,19 @@ public class SysResource {
 
     private Byte available;
 
+    public static enum ResourceType {
+        menu("menu"), button("button");
+
+        private final String info;
+        private ResourceType(String info) {
+            this.info = info;
+        }
+
+        public String getInfo() {
+            return info;
+        }
+    }
+
     public Long getId() {
         return id;
     }
@@ -89,5 +102,42 @@ public class SysResource {
 
     public void setPriority(Integer priority) {
         this.priority = priority;
+    }
+
+    public boolean isRootNode() {
+        return parentId == 0;
+    }
+
+    public String makeSelfAsParentIds() {
+        return getParentIds() + getId() + "/";
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SysResource resource = (SysResource) o;
+
+        if (id != null ? !id.equals(resource.id) : resource.id != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "SysResource{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type=" + type +
+                ", permission='" + permission + '\'' +
+                ", parentId=" + parentId +
+                ", parentIds='" + parentIds + '\'' +
+                ", available=" + available +
+                '}';
     }
 }

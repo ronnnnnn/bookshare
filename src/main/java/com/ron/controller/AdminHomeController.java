@@ -17,7 +17,16 @@ public class AdminHomeController extends BaseController {
    public String toAdminHome(){
 	   return "admin/index";
    }
-   
+
+   @RequestMapping("/booksheft")
+   public String toProductManage(){
+   	  return "/admin/productManage/productManage";
+   }
+   @RequestMapping("/book/all")
+   public String toBookManage(){
+   	  return "/admin/bookManage/bookManage";
+   }
+
    @RequestMapping("/getTreeList")
    public void getTreeList(HttpServletResponse response){
 	   List<Map<String,Object>> maps = new ArrayList<Map<String,Object>>();  
@@ -45,7 +54,6 @@ public class AdminHomeController extends BaseController {
 	   children.add(text2);
 	   
 	   Map<String,Object> map = new HashMap<String,Object>();
-	  
 	   map.put("text", "首页");
 	   map.put("children", children);
 	   maps.add(map);

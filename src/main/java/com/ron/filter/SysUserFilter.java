@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -21,6 +22,7 @@ public class SysUserFilter extends PathMatchingFilter {
 
         String username = (String)SecurityUtils.getSubject().getPrincipal();
         request.setAttribute(Constants.CURRENT_USER, userService.findByUsername(username));
+
         return true;
     }
 }

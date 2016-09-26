@@ -1,4 +1,7 @@
 package com.ron.filter;
+import com.ron.spring.SpringCacheManagerWrapper;
+
+import javax.annotation.Resource;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -13,6 +16,9 @@ import java.io.IOException;
  * Created by ron on 16-9-20.
  */
 public class AgantLoginFilter implements Filter{
+//    @Resource
+//    SpringCacheManagerWrapper springCacheManagerWrapper;
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -22,10 +28,10 @@ public class AgantLoginFilter implements Filter{
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
-        if("/login".equals(req.getServletPath())&& req.getAttribute("user")!=null){
+        if("/login".equals(req.getServletPath()) ){
             res.sendRedirect("/toAdminHome");
         }else{
-            res.sendRedirect("/login");
+            chain.doFilter(request, response);
         }
     }
 
