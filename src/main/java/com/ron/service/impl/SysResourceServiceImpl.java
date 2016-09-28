@@ -2,7 +2,7 @@ package com.ron.service.impl;
 
 import com.ron.domain.SysResource;
 import com.ron.mapper.SysResourceMapper;
-import com.ron.service.ResourceService;
+import com.ron.service.SysResourceService;
 import org.apache.shiro.authz.permission.WildcardPermission;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -17,7 +17,7 @@ import java.util.Set;
  * Created by ron on 16-9-19.
  */
 @Service
-public class ResourceServiceImpl implements ResourceService {
+public class SysResourceServiceImpl implements SysResourceService {
     @Resource
     SysResourceMapper sysResourceMapper;
     @Override

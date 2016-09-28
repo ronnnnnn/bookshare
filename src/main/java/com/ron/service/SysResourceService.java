@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * Created by ron on 16-9-19.
  */
-public interface ResourceService {
+public interface SysResourceService {
 
     Set<String> findPermissions(Set<Long> resourceIds); //得到资源对应的权限字符串
 

@@ -2,6 +2,8 @@ package com.ron.mapper;
 
 import com.ron.domain.SysOrganization;
 
+import java.util.List;
+
 public interface SysOrganizationMapper {
 
 
@@ -16,4 +18,6 @@ public interface SysOrganizationMapper {
     int updateByPrimaryKeySelective(SysOrganization record);
 
     int updateByPrimaryKey(SysOrganization record);
+
+    List<SysOrganization> selectAll();
 }

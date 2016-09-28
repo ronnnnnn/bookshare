@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * Created by ron on 16-9-19.
  */
-public interface Userservice {
+public interface SysUserservice extends BaseService<SysUser> {
 
     public void changePassword(Long userId, String newPassword); //修改密码
 

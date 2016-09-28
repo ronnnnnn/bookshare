@@ -2,7 +2,7 @@ package com.ron.realm;
 
 
 import com.ron.domain.SysUser;
-import com.ron.service.Userservice;
+import com.ron.service.SysUserservice;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 public class UserRealm extends AuthorizingRealm {
 
     @Resource
-    private Userservice userService;
+    private SysUserservice userService;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {

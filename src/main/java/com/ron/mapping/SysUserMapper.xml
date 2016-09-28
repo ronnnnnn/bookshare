@@ -17,11 +17,12 @@
     <result column="last_login_time" property="lastLoginTime" jdbcType="BIGINT" />
     <result column="account" property="account" jdbcType="DOUBLE" />
     <result column="book_ids" property="bookIds" jdbcType="VARCHAR" />
+    <result column="organization" property="organization" jdbcType="VARCHAR" />
   </resultMap>
 
   <sql id="Base_Column_List" >
     id, username, password, salt, role_ids, locked, email, nickname, user_integral, is_email_verify, 
-    email_verify_code, last_login_ip, last_login_time, account, book_ids
+    email_verify_code, last_login_ip, last_login_time, account, book_ids,organization
   </sql>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
@@ -29,6 +30,12 @@
     <include refid="Base_Column_List" />
     from sys_user
     where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_user
   </select>
 
   <select id="selectByUsername" resultMap="BaseResultMap" parameterType="java.lang.String" >
@@ -48,13 +55,13 @@
       salt, role_ids, locked, 
       email, nickname, user_integral, 
       is_email_verify, email_verify_code, last_login_ip, 
-      last_login_time, account, book_ids
+      last_login_time, account, book_ids,organization
       )
     values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{salt,jdbcType=VARCHAR}, #{roleIds,jdbcType=VARCHAR}, #{locked,jdbcType=TINYINT}, 
       #{email,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{userIntegral,jdbcType=INTEGER}, 
       #{isEmailVerify,jdbcType=CHAR}, #{emailVerifyCode,jdbcType=VARCHAR}, #{lastLoginIp,jdbcType=VARCHAR}, 
-      #{lastLoginTime,jdbcType=BIGINT}, #{account,jdbcType=DOUBLE}, #{bookIds,jdbcType=VARCHAR}
+      #{lastLoginTime,jdbcType=BIGINT}, #{account,jdbcType=DOUBLE}, #{bookIds,jdbcType=VARCHAR},#{organization,jdbcType=VARCHAR}
       )
   </insert>
 
@@ -106,6 +113,9 @@
       <if test="bookIds != null" >
         book_ids,
       </if>
+      <if test="organization != null" >
+        organization,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -152,6 +162,9 @@
       </if>
       <if test="bookIds != null" >
         #{bookIds,jdbcType=VARCHAR},
+      </if>
+      <if test="organization != null" >
+        #{organization,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -201,6 +214,9 @@
       <if test="bookIds != null" >
         book_ids = #{bookIds,jdbcType=VARCHAR},
       </if>
+      <if test="organization != null" >
+        organization = #{organization,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -220,7 +236,8 @@
       last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
       last_login_time = #{lastLoginTime,jdbcType=BIGINT},
       account = #{account,jdbcType=DOUBLE},
-      book_ids = #{bookIds,jdbcType=VARCHAR}
+      book_ids = #{bookIds,jdbcType=VARCHAR},
+      organization = #{organization,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 

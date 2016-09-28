@@ -31,6 +31,16 @@ public class SysUser {
 
     private String bookIds;
 
+    private String organization;
+
+    public String getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(String organization) {
+        this.organization = organization;
+    }
+
     public Long getId() {
         return id;
     }

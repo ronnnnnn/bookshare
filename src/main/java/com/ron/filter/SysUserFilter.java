@@ -1,13 +1,12 @@
 package com.ron.filter;
 
-import com.ron.service.Userservice;
+import com.ron.service.SysUserservice;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.web.filter.PathMatchingFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -15,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 public class SysUserFilter extends PathMatchingFilter {
 
     @Autowired
-    private Userservice userService;
+    private SysUserservice userService;
 
     @Override
     protected boolean onPreHandle(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {

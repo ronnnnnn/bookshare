@@ -1,23 +1,29 @@
 package com.ron.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.ron.domain.SysRole;
 import com.ron.domain.SysUser;
 import com.ron.mapper.SysResourceMapper;
 import com.ron.mapper.SysRoleMapper;
 import com.ron.mapper.SysUserMapper;
-import com.ron.service.RoleService;
-import com.ron.service.Userservice;
+import com.ron.model.Datagrid;
+import com.ron.model.PageModel;
+import com.ron.service.SysRoleService;
+
+import com.ron.service.SysUserservice;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
  * Created by ron on 16-9-19.
  */
 @Service
-public class UserServiceImpl implements Userservice {
+public class SysUserserviceImpl implements SysUserservice {
 
     @Resource
     SysUserMapper sysUserMapper;
@@ -29,7 +35,7 @@ public class UserServiceImpl implements Userservice {
     SysRoleMapper sysRoleMapper;
 
     @Resource
-    RoleService roleService;
+    SysRoleService roleService;
 
     @Override
     public void changePassword(Long userId, String newPassword) {
@@ -65,5 +71,36 @@ public class UserServiceImpl implements Userservice {
             mroleids[i] = Long.parseLong(roleIds[i]);
         }
         return roleService.findPermissions(mroleids);
+    }
+
+    @Override
+    public Integer save(SysUser sysUser) {
+        return sysUserMapper.insert(sysUser);
+    }
+
+    @Override
+    public Integer update(SysUser sysUser) {
+        return sysUserMapper.insert(sysUser);
+    }
+
+    @Override
+    public Datagrid getAll(PageModel pageModel){
+        PageHelper.startPage(pageModel.getPage(),pageModel.getRows());
+        List<SysUser> users = sysUserMapper.selectAll();
+        PageInfo pageInfo = new PageInfo(users);
+        Datagrid datagrid = new Datagrid();
+        datagrid.setRows(users);
+        datagrid.setTotal(pageInfo.getTotal());
+        return datagrid;
+    }
+
+    @Override
+    public SysUser getOneById(SysUser sysUser) {
+        return sysUserMapper.selectByPrimaryKey(sysUser.getId());
+    }
+
+    @Override
+    public Integer deleteOneById(SysUser sysUser) {
+        return sysUserMapper.deleteByPrimaryKey(sysUser.getId());
     }
 }
